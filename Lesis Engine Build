@@ -11,9 +11,7 @@ jobs:
         uses: ilammy/msvc-dev-cmd@v1
 
       - name: Compile Engine
-        run: |
-          cl.exe /O2 /MT /EHsc lesis_engine.cpp /Fe:LesisEngine.exe /D_CRT_SECURE_NO_WARNINGS /link /NODEFAULTLIB:libcmtd
-        # Bu komut lesis_engine.cpp dosyasını arayıp LesisEngine.exe yapacak.
+        run: cl.exe /O2 /MT /EHsc lesis_engine.cpp /Fe:LesisEngine.exe /D_CRT_SECURE_NO_WARNINGS /link /NODEFAULTLIB:libcmtd
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
