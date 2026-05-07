@@ -1,0 +1,24 @@
+name: Build Lesis Engine
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Compile Engine
+        run: |
+          # Klasördeki tüm dosyaları tara ve lesis_engine.cpp'yi bulup derle
+          Get-ChildItem -Recurse -Filter "lesis_engine.cpp" | ForEach-Object {
+            cl.exe /O2 /MT /EHsc $_.FullName /Fe:LesisEngine.exe /D_CRT_SECURE_NO_WARNINGS
+          }
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: LesisEngine-Artifact
+          path: LesisEngine.exe
