@@ -5,6 +5,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
       - name: Compile Engine
         run: |
           cl.exe /O2 /MT /EHsc lesis_engine.cpp /Fe:LesisEngine.exe
