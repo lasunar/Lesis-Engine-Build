@@ -12,8 +12,7 @@
 #include <map>
 #include <mutex>
 
-#pragma comment(lib, "ws2_32.lib")   // Ağ filtresi için
-#pragma comment(lib, "ntdll.lib")     // Native API için
+#pragma comment(lib, "ws2_32.lib")
 
 // ==============================================================
 // BÖLÜM 1: OFFSET VE SABİTLER (2026 GÜNCEL - ÖRNEK)
